@@ -16,10 +16,8 @@ import io
 import warnings
 warnings.filterwarnings("ignore")
 
-openai_api_key = "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"
-#os.environ.get("OPENAI_API_KEY")
-pinecone_api_key = "e267ba02-ba2b-47aa-b4ba-f120c2a3c8a1"
-#os.environ.get("PINECONE_API_KEY")
+openai_api_key = os.environ.get("OPENAI_API_KEY")
+pinecone_api_key = os.environ.get("PINECONE_API_KEY")
 
 class LLM_Chatbot:
     def __init__(self, openai_api_key = openai_api_key, pinecone_api_key = pinecone_api_key, model = 'gpt-3.5-turbo-1106', temperature = 0.5):
