@@ -5,14 +5,13 @@ unstructured
 uuid
 tqdm
 pinecone-client
-strings
 selenium
 PyPDF2
 FPDF
 Python-IO
-warnings
 regex
 fastapi
 uvicorn
 pydantic
 python-multipart
+tiktoken

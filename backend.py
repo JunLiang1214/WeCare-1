@@ -18,10 +18,17 @@ from fastapi.responses import FileResponse
 from pydantic import BaseModel
 from llm_openai import LLM_Chatbot
 import warnings
+from fastapi.middleware.cors import CORSMiddleware
 warnings.filterwarnings("ignore")
 
 app = FastAPI()
-
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],
+    allow_credentials=True,
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],  
+    allow_headers=["*"],
+)
 app.llm = LLM_Chatbot()
 
 #schema for user input in chatbot
@@ -42,6 +49,7 @@ def init_chatbot():
 #returning a JSON in the form {"response": response}
 @app.post("/chatbot/chat", response_model= chatbot_response_schema)
 async def get_model_response(user_input: user_input_schema):
+    
     user_input = user_input.dict()["user_input"]
     res = app.llm.get_model_response(user_input)
     return {"response": res}
