@@ -14,6 +14,7 @@ from PyPDF2 import PdfReader
 from fpdf import FPDF
 import io
 from fastapi import FastAPI, File, UploadFile
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from pydantic import BaseModel
 from llm_openai import LLM_Chatbot
@@ -21,6 +22,14 @@ import warnings
 warnings.filterwarnings("ignore")
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173/"],
+    allow_credentials=True,
+    allow_methods=[""],
+    allow_headers=[""],
+)
 
 app.llm = LLM_Chatbot()
 
