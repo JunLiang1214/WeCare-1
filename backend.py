@@ -14,6 +14,7 @@ from PyPDF2 import PdfReader
 from fpdf import FPDF
 import io
 from fastapi import FastAPI, File, UploadFile
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from pydantic import BaseModel
 from llm_openai import LLM_Chatbot
