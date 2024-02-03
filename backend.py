@@ -19,7 +19,6 @@ from fastapi.responses import FileResponse
 from pydantic import BaseModel
 from llm_openai import LLM_Chatbot
 import warnings
-from fastapi.middleware.cors import CORSMiddleware
 warnings.filterwarnings("ignore")
 
 app = FastAPI()

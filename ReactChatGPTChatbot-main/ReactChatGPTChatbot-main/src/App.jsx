@@ -148,6 +148,19 @@ function App() {
     window.open("http://127.0.0.1:8000/chatbot/save_chat_history", "_blank");
 
   }
+  const night = () =>{
+    const bg = document.querySelector('body')
+    const chat = document.querySelector(".cs-main-container")
+    if (bg.style.background == "black" ){
+      bg.style.background = "white"
+      chat.style.backgroundColor = "white"
+      
+    }
+    else{
+      bg.style.background = "black"
+      chat.style.backgroundColor = "black"
+    }
+  }
 
   return (
     <div className="App">
@@ -158,11 +171,12 @@ function App() {
             <p style={{ fontFamily: "Mukta", fontSize: "2rem", fontWeight: "bold", marginLeft: "8px" }}>WeCare</p>
           </div>
           <button onClick={ChatHistory}>Chat History</button>
+          <button onClick={night}>Night Mode</button>
         </div>
 
 
         <MainContainer style={{ height: "80%", borderRadius: "25px" }}>
-          <ChatContainer>
+          <ChatContainer id="chat">
             <MessageList
               scrollBehavior="smooth"
               typingIndicator={isTyping ? <TypingIndicator content="WeCare is typing" /> : null}
@@ -189,7 +203,7 @@ function App() {
           </div>
           <div style={{float:"left",paddingTop:"3%", fontFamily: "Mukta",width:"100%",textAlign:"start"}}>
           <svg  style={{marginRight:"2%"}}aria-hidden="true" focusable="false" data-prefix="fas" data-icon="paper-plane" class="svg-inline--fa fa-paper-plane fa-w-16 " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M476 3.2L12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"></path></svg>
-              Click to send message / Type "Enter"
+              Click to send message or press "Enter"
               </div>
       </div>
     </div>
