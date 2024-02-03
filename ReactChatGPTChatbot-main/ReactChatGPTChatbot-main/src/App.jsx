@@ -166,12 +166,12 @@ function App() {
     <div className="App">
       <div style={{ position: "relative", height: "800px", width: "700px", }}>
         <div style={{ height: "10%", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <div style={{ height: "100%", display: "flex", alignItems: "center" }}>
+          <div style={{ height: "100%", display: "flex", alignItems: "center",flex:"4" }}>
             <img src={logo} alt="" style={{ height: "100%" }} />
             <p style={{ fontFamily: "Mukta", fontSize: "2rem", fontWeight: "bold", marginLeft: "8px" }}>WeCare</p>
           </div>
-          <button onClick={ChatHistory}>Chat History</button>
-          <button onClick={night}>Night Mode</button>
+          <button onClick={ChatHistory} style={{flex:"1"}}>Chat History</button>
+          <button onClick={night} style={{outline:"none",flex:"1",marginLeft:"1%"}}>Night Mode</button>
         </div>
 
 
