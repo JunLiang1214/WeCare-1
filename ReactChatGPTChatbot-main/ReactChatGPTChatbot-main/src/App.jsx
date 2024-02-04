@@ -46,13 +46,20 @@ function App() {
   const [isTyping, setIsTyping] = useState(false);
 
   const handleSend = async (message) => {
+    const tempElement = document.createElement('div');
+
+    // Set its innerHTML to your message
+    tempElement.innerHTML = message;
+
+    // Get the text content
+    const textContent = tempElement.innerText;
     const newMessage = {
-      message,
+      message:textContent,
       direction: 'outgoing',
       sender: "user"
     };
     const sendMessage = {
-      user_input: message
+      user_input: textContent
     }
     const newMessages = [...messages, newMessage];
 
